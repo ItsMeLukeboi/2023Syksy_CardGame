@@ -22,3 +22,8 @@
     justify-content: center;
     gap: 10px;
 }
+.centter{
+    text-align: center;
+    align-self: center;
+    min-width: 10vW;
+}
