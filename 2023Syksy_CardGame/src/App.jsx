@@ -77,9 +77,17 @@ export default function App(){
         <p>{result || 'Press the button'}</p>
        <button onClick={compareCards} type="button">Play</button>
       </div>
-      <Card card = {cards.enemy[0]}/>
+
+      <ul className='card-list enemy'>
+        {cards.enemy.map(eCard =>(
+          <li className='card-list-item enemy' key={eCard.id}>
+            <Card card = {eCard}/>
+          </li>
+        ))}
+      </ul>
+
      </div>
-     {console.log(dealCards())}
+
    </div>
    );
 };

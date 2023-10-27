@@ -22,8 +22,25 @@
     justify-content: center;
     gap: 10px;
 }
-.centter{
+.center{
     text-align: center;
     align-self: center;
-    min-width: 10vW;
+    min-width: 10vw;
+}
+
+.card-list{
+    display: flex;
+}
+
+.card-list.enemy{
+    direction: rtl;
+}
+
+
+.card-list-item.player{
+    margin-left: calc(2vw - 100px);
+}
+.card-list-item.enemy{
+    margin-right: calc(2vw - 100px);
+    direction: ltr;
 }
