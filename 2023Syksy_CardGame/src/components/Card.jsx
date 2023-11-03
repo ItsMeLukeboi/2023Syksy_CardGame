@@ -1,4 +1,7 @@
 export default function App({card}){
+
+if(!card) return<div className="card back"/>;
+
  return(
    <div className="card">
       <img src={card.image}/>
