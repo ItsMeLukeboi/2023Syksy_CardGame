@@ -57,8 +57,8 @@ export default function App(){
     
 
   function compareCards(){
-    const playerStat = cards.player[0].stats[0];
-    const enemyStat = cards.enemy[0].stats[0];
+    const playerStat = cards.player[0].stats[selectedStat];
+    const enemyStat = cards.enemy[0].stats[selectedStat];
 
 
     if(playerStat.value === enemyStat.value){
@@ -108,14 +108,23 @@ function nextRound(){
   setResult('');
 }
 
+function restartGame(){
+  setCards(dealCards);
+  setResult('');
+  setGameState('play');
+}
+
   return(
    <div>
-     <h1>Hello world!</h1>
+     <h1>Brawler Cats!</h1>
      <div className='game'>
       <ul className='card-list'>
         {cards.player.map((pCard, index) =>(
           <li className='card-list-item player' key={pCard.id}>
-            <Card card = {index == 0 ? pCard : null}/>
+            <Card card = {index == 0 ? pCard : null} 
+            handleSelect={statIndex => gameState === 'play' && setSelectedStat(statIndex)}
+            selectStat={selectedStat}
+            />
           </li>
         ))}
       </ul>

@@ -57,3 +57,14 @@
     font-size: larger;
     font-weight: bold;
 }
+
+.stat-list-item.selected{
+    outline: 2px solid black;
+    
+}
+
+.card-list-item.player .stat-list-item:hover{
+    outline: 1px dashed black;
+    background-color: white;
+
+}
