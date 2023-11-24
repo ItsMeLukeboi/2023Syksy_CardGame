@@ -53,7 +53,14 @@ export default function App(){
   const[gameState, setGameState] = useState('play');
   const[selectedStat, setSelectedStat] = useState(0);
     
-    
+ if(gameState !== 'game_over' && (!cards.enemy.length || !cards.player.length)){
+  setResult(()=>{
+    if(!cards.enemy.length) return 'Player win!';
+    else if (!cards.player.length) return 'Player loss!';
+    return 'Draw';
+  })
+  setGameState('game_over');
+ }   
     
 
   function compareCards(){
@@ -118,6 +125,7 @@ function restartGame(){
    <div>
      <h1>Brawler Cats!</h1>
      <div className='game'>
+      <div className='hand player'>
       <ul className='card-list'>
         {cards.player.map((pCard, index) =>(
           <li className='card-list-item player' key={pCard.id}>
@@ -128,27 +136,34 @@ function restartGame(){
           </li>
         ))}
       </ul>
-      
+      </div>
+
       <div className='center'>
         <p>{result || 'Press the button'}</p>
         {
           gameState === 'play'?(
             <PlayButton text={'Play'} handleClick={compareCards}/>
-          ) : (
+          ) 
+          : gameState == 'game_over' ?
+          (<PlayButton text={'Restart'} handleClick={restartGame}/>)
+          :
+          (
             <PlayButton text={'Next'} handleClick={nextRound}/>
           )
         }
         
       </div>
 
-      <ul className='card-list enemy'>
-        {cards.enemy.map(eCard =>(
+      <div className='hand enemy'>
+        <ul className='card-list enemy'>
+        {cards.enemy.map((eCard,index) =>(
           <li className='card-list-item enemy' key={eCard.id}>
-            <Card card = {eCard}/>
+            <Card card = {result && index === 0 ? eCard : null}/>
           </li>
         ))}
-      </ul>
-
+       </ul>
+       </div>
+      
      </div>
 
    </div>

@@ -68,3 +68,14 @@
     background-color: white;
 
 }
+
+.hand.enemy{
+    display: flex;
+    flex-direction: column;
+    width: 40vW;
+}
+.hand.player{
+    display: flex;
+    flex-direction: column;
+    width: 40vW;
+}
