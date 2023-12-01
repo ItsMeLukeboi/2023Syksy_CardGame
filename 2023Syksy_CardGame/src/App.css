@@ -79,3 +79,15 @@
     flex-direction: column;
     width: 40vW;
 }
+a:link, a:visited{
+    background-color: palevioletred;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 10vw;
+}
+a:hover, a:active{
+    background-color: black;
+}
