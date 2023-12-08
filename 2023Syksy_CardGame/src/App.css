@@ -91,3 +91,7 @@ a:link, a:visited{
 a:hover, a:active{
     background-color: black;
 }
+
+#canvas{
+    background-color: aqua;
+}
